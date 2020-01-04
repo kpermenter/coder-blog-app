@@ -3,9 +3,13 @@ const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
+var session = require("express-session");
+// var passportLocalSequelize = require("passport-local-sequelize");
+var passport = require("passport");
 
 const routes = require('./routes/index');
 const articles = require('./routes/articles');
+const login = require('./routes/login');
 
 const app = express();
 
@@ -21,6 +25,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
 app.use('/articles', articles);
+app.use('/login', login);
 
 // catch 404 and forward to error handler
 app.use( (req, res, next) => {

@@ -1,0 +1,14 @@
+//- extends layout
+
+//- block content
+doctype html
+head
+  title Passport
+h1 Please Register
+form(action='/login' method='post')
+  label(for='username') Username:
+  input(type='text' name='username' placeholder='Username')
+  label(for='password') Password:
+  input(type='password' name='password' placeholder='Password')
+  input(type='submit')
+
