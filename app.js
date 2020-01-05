@@ -6,10 +6,11 @@ const logger = require('morgan');
 var session = require("express-session");
 // var passportLocalSequelize = require("passport-local-sequelize");
 var passport = require("passport");
+var passportLocalSequelize = require("passport-local-sequelize");
 
 const routes = require('./routes/index');
 const articles = require('./routes/articles');
-const login = require('./routes/login');
+const register = require('./routes/register');
 
 const app = express();
 
@@ -25,7 +26,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
 app.use('/articles', articles);
-app.use('/login', login);
+app.use('/register', register);
 
 // catch 404 and forward to error handler
 app.use( (req, res, next) => {
